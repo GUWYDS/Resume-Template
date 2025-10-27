@@ -1,0 +1,223 @@
+% 模板基础配置（文档类与核心样式）
+\documentclass[11pt,a4paper,roman]{moderncv}  % 文档类设置：字体大小11pt，A4纸，罗马字体
+\moderncvstyle{banking}                       % 简历样式：banking（银行式布局）
+\moderncvcolor{blue}                          % 主题颜色：蓝色
+
+% 编码与包引入
+\usepackage[utf8]{inputenc}                   % 字符编码：UTF-8
+\usepackage{fontawesome}                      % 引入字体图标（用于联系方式等）
+\usepackage{tabularx}                         % 增强表格功能
+\usepackage{ragged2e}                         % 文本对齐控制
+\usepackage[scale=0.8]{geometry}              % 页面布局缩放：0.8倍
+\usepackage{multicol}                         % 多列布局支持
+\usepackage{import}                           % 外部文件导入功能
+
+% 页面设置
+\nopagenumbers{}                              % 不显示页码
+
+% 个人信息配置
+\name{Yifei}{Wang}                            % 姓名
+
+% 自定义命令（用于内容格式化）
+% 1. 自定义经历条目（包含职位、时间、地点等信息）
+\newcommand*{\customcventry}[7][.25em]{
+  \begin{tabular}{@{}l} 
+    {\bfseries #4}
+  \end{tabular}
+  \hfill
+  \begin{tabular}{l@{}}
+     {\bfseries #5}
+  \end{tabular} \\
+  \begin{tabular}{@{}l} 
+    {\itshape #3}
+  \end{tabular}
+  \hfill
+  \begin{tabular}{l@{}}
+     {\itshape #2}
+  \end{tabular}
+  \ifx&#7&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#7%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+% 2. 自定义项目条目（用于项目、奖项等）
+\newcommand*{\customcvproject}[4][.25em]{
+  \begin{tabular}{@{}l} 
+    {\bfseries #2}
+  \end{tabular}
+  \hfill
+  \begin{tabular}{l@{}}
+     {\itshape #3}
+  \end{tabular}
+  \ifx&#4
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#4%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+% 3. 自定义参考条目
+\newcommand*{\cvref}[3][.25em]{
+  \begin{tabular}{@{}l} 
+    {\bfseries #2}
+  \end{tabular}
+  \ifx&#3
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#3%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+% 表格间距调整
+\setlength{\tabcolsep}{12pt}
+
+% 文档内容开始
+\begin{document}
+
+% 生成标题并调整间距
+\makecvtitle
+\vspace*{-23mm}  % 缩减标题下方空白
+\vspace{1em}     % 增加标题与内容的间距
+
+% 联系方式（使用图标与表格布局）
+\begin{center}
+\begin{tabular}{ c c c c }
+ \faLink\enspace sumanrbt1997.wixsite.com/suman & \faEnvelopeO\enspace sumanrbt1997@gmail.com & \faGithub\enspace github.com/suman1209 
+ \\\faMobile\enspace +94 77 264 6761 & \faLinkedin\enspace in/sumanrbt97
+\end{tabular}
+\end{center}
+
+% 职业目标 section
+\section{CAREER OBJECTIVE}
+\begin{itemize}
+  \item I am very much interested and looking forward to involve in \textbf{Real World Projects}.
+  \item I want to work with a team where I can apply my knowledge and gain practical and professional experience.
+  \item \textbf{Currently seeking internship in the field of my interest} – Robotics and AI, Machine learning, Computer Vision, Embedded systems, Processor Design.
+\end{itemize}
+
+% 教育背景 section
+\section{EDUCATION}
+\customcventry{Oct 2016 -- Present}{BSc. Eng (Hons.)}{University of Moratuwa}{Moratuwa, Srilanka}{}{Electronics and Telecommunication Engineering}
+\begin{itemize}
+  \item Cumulative GPA -- \textbf{3.45/4.2}
+\end{itemize}
+
+\customcventry{May 2013 -- Sep 2015}{G.C.E Advanced Level Examination}{Jaffna Hindu College}{Jaffna, SriLanka}{}{}
+\begin{itemize}
+  \item \textbf{3A's} (Combined Mathematics, Physics, Chemistry).
+\end{itemize}
+
+\customcventry{Jan 2010 -- Dec 2012}{G.C.E Ordinary Level Examination}{Manipay Angel International School}{Manipay, SriLanka}{}{}
+\begin{itemize}
+  \item \textbf{6A's} (Including Information Communication Technology, German language, English Literature).
+\end{itemize}
+
+% 技术技能 section
+\section{ADVANCED TECHNICAL SKILLS \& KNOWLEDGE AREAS}
+\begin{itemize}
+  \item Programming Language --\textbf{Python} [good] ,\textbf{C\#,C++} [Basic]
+  \item \textbf{MATLAB}
+  \item \textbf{SolidWorks} [good]
+  \item \textbf{OpenCV python}, [in Anaconda and Jupyter Lab]
+\end{itemize}
+
+% 专业资质 section
+\section{PROFESSIONAL QUALIFICATION}
+\begin{itemize}
+  \item \textbf{Data structures and Algorithm}
+  \item \textbf{PCB designing} in Altium and making complete circuit
+  \item \textbf{Digital circuit design} (tools – DE 2-115 FPGA,Verilog , Quartus , Modelsim Altera)
+  \item \textbf{Knowledge of processor architecture}
+  \item Fundamentals of Image processing
+  \item Familiarity with microcontrollers.
+\end{itemize}
+
+% 语言能力 section
+\section{LANGUAGE}
+\begin{itemize}
+  \item {\textbf{English} [fluent]}
+  \item {\textbf{Deutsch} [good]}
+  \item {\textbf{Tamil} [fluent]} 
+\end{itemize}
+
+% 奖项与竞赛 section
+\section{AWARDS AND COMPETITIONS}
+% 将列表作为第四个参数传入，用 {} 包裹
+\customcvproject{Intra University Robotics Competition}{2017,2018}{
+  \begin{itemize}
+    \item Built a four wheeled robot for a given task
+  \end{itemize}
+}
+
+% 其他奖项也按此格式修改
+\customcvproject{Asian Finalists in IEEE SS12}{2018}{
+  \begin{itemize}
+    \item Innovation Challenge
+  \end{itemize}
+}
+
+\customcvproject{Finalists in Yarl Geek Challenge}{2018}{
+  \begin{itemize}
+    \item Start-up Competition
+  \end{itemize}
+}
+
+\customcvproject{IEEE Electronic Design and Competition}{2018}{
+  \begin{itemize}
+    \item Built a DC to DC Voltage regulator 
+  \end{itemize}
+}
+
+% 项目经历 section
+\section{PROJECTS}
+\textbf{For detailed description of all my projects, refer the link below.} \\
+\faLink \, https://sumanrbt1997.wixsite.com/suman
+
+\customcvproject{Designing and implementing a processor for down sampling an image}{Ongoing}{
+    \begin{itemize}
+      \item FPGA [DE2-115], Quartus prime lite, Verilog
+    \end{itemize}
+}
+
+\customcvproject{UART Transceiver on FPGA}{2018}{
+    \begin{itemize}
+      \item Verilog, FPGA
+      \item Programming and testing of UART communication protocol on FPGA [DE2-115].
+    \end{itemize}
+}
+
+\customcvproject{Created a four wheeled Robot for a given Task}{2018}{
+    \begin{itemize}
+      \item Arduino microcontroller
+    \end{itemize}
+}
+
+
+% 领导经历 section
+\section{LEADERSHIP ACTIVITIES}
+\begin{itemize}
+  \item \textbf{Led} the team which conducted Education Ministry Sponsored \textbf{Robotics Workshop} in the \textbf{Northern Province} (2018)
+  \item \textbf{Department representative} for semesters 4 and 5 [Jun 2018 – Jun 2019]
+  \item \textbf{Taught CIE A/L physics and been the Lab exam supervisor for CIE (2016) \\ Centre} – Angel International School Manipay \textbf{[Aug 2015 – Aug 2016]}
+\end{itemize}
+
+% 布局参数调整（针对多列布局）
+\setlength{\columnwidth}{\textwidth}
+\addtolength{\columnwidth}{-\columnsep}
+\setlength{\columnwidth}{.5\columnwidth}
+\setlength{\hintscolumnwidth}{0.175\columnwidth}
+\setlength{\separatorcolumnwidth}{0.025\columnwidth}
+
+\renewcommand*{\recomputecvbodylengths}{%
+  \setlength{\maincolumnwidth}{\columnwidth-\leftskip-\rightskip-\separatorcolumnwidth-\hintscolumnwidth}%
+  \setlength{\listitemcolumnwidth}{\maincolumnwidth-\listitemsymbolwidth}%
+  \setlength{\doubleitemcolumnwidth}{\maincolumnwidth-\hintscolumnwidth-\separatorcolumnwidth-\separatorcolumnwidth}%
+  \setlength{\doubleitemcolumnwidth}{0.5\doubleitemcolumnwidth}%
+  \setlength{\listdoubleitemcolumnwidth}{\maincolumnwidth-\listitemsymbolwidth-\separatorcolumnwidth-\listitemsymbolwidth}%
+  \setlength{\listdoubleitemcolumnwidth}{0.5\listdoubleitemcolumnwidth}%
+  \setlength{\parskip}{0pt}}
+\recomputecvbodylengths
+
+\end{document}
